@@ -22,14 +22,67 @@
         </aside>
 
     </section>
+    
+    <section class="no_bg">
+        <h2>Storage Backend</h2>
+        
+        <p>Responsible for:</p>
+         <ul>
+            <li>Managing writing on Disks / HDD / Directories</li>
+            <li>Manage dynamic provisioning / sizing of volumes</li>
+            <li>Manage replication, failover and backup</li>
+        </ul>
+        
+        <p>Examples: Rook-Ceph, Longhorn, EBS, AzureDisk</p>
+    </section>
+    
+    <section class="no_bg">
+        <h2>Persistent Volume Claim</h2>
+        
+         <ul>
+            <li>"Request" for a persistent volume</li>
+            <li>Used by Pods to get access to a persistent volume</li>
+            <li>ReadWriteOnce: Can only be mounted once</li>
+            <li>ReadWriteMany: Can be mounted from multiple pods</li>
+        </ul>
+    </section>
+    
+    <section class="no_bg">
+        <h2>Persistent Volume Claim: Example</h2>
+        
+         <pre><code data-trim data-noescape>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim
+spec:
+  accessModes:
+    - ReadWriteOnce #or ReadWriteMany
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: longhorn
+        </code></pre>
+    </section>
+    
+    <section class="no_bg">
+        <h2>StatefulSet</h2>
+        
+         <ul>
+            <li>Like Deployments</li>
+            <li>Can hold a template for a PersistentVolumeClaim</li>
+            <li>Each replica can have their own persistent volume</li>
+            <li>Used for: Databases, Stateful Apps</li>
+        </ul>
+    </section>
 
     <section data-background="#00a2a1" class="green_bg">
-        <h2><img src="images/icon_task.png" class="moby_icon" alt="icon"> Exercise: Configuration, Secrets & Volumes</h2>
+        <h2><img src="images/icon_task.png" class="moby_icon" alt="icon"> Exercise: Kubernetes Volumes</h2>
         
         <p>Work through</p>
 
         <ul>
-            <li class='exercise' script='provisioning-kube-config.md'>Provisioning Kube Config</li>
+            <li class='exercise' script='provisioning-kube-config.md'>Kubernetes Volumes</li>
         </ul>
 
         <p>in the Exercises book.</p>

@@ -1,6 +1,64 @@
 <section>
     <section class="no_bg">
+        <h2>Ingress</h2>
+    </section>
+    
+    <section class="no_bg">
         <h2>Kubernetes Ingress</h2>
+        
+        <ul>
+            <li>Exposes Services to the outside world</li>
+            <li>Acts as Layer 7 LoadBalancer</li>
+            <li>Manages domain and path based routing</li>
+            <li>Always routes to services</li>
+            <li>Manages tls encryption</li>
+        </ul>
+    </section>
+    
+    <section class="no_bg">
+        <h2>Ingress Controller</h2>
+        
+        <ul>
+            <li>Software that accomplishes ingress routing</li>
+            <li>Needs to be installed on top of Kubernetes</li>
+            <li>Examples: Nginx, Trafeik, HAProxy</li>
+        </ul>
+    </section>
+    
+    <section class="no_bg">
+        <h2>Ingress Example</h2>
+        
+        <pre><code data-trim data-noescape>
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+spec:
+  rules:
+  - host: "app.foo.com" #hostname
+    http:
+      paths:
+      - path: /foobar #path
+        pathType: Prefix
+        backend:
+          service:
+            name: test #servicename
+            port:
+              number: 80 #port of service
+        </code></pre>
+    </section>
+    
+    <section data-background="#00a2a1" class="green_bg">
+        <h2><img src="images/icon_task.png" class="moby_icon" alt="icon"> Exercise: Kubernetes Ingress</h2>
+        
+        <p>Work through</p>
+
+        <ul>
+            <li class='exercise' script='provisioning-kube-config.md'>Kubernetes Ingress</li>
+        </ul>
+
+        <p>in the Exercises book.</p>
+        <h2 class="timer"></h2>
     </section>
 
     <section class="no_bg">
