@@ -31,14 +31,14 @@
     <section class="no_bg">
         <h2>Solution</h2>
         <p>Sample Dockerfile</p>
-        <div class='pre'>FROM anapsix/alpine-java
+        <pre><code data-trim data-noescape>FROM anapsix/alpine-java
 LABEL MAINTAINER=clemens.kaserer@gepardec.com
 WORKDIR /data
 EXPOSE 8080
 COPY build/libs/rest-service-0.0.1-SNAPSHOT.jar \
      rest-service-0.0.1-SNAPSHOT.jar
 CMD ["-jar", "rest-service-0.0.1-SNAPSHOT.jar"]
-ENTRYPOINT ["java"]</div>            
+ENTRYPOINT ["java"]</code></pre>            
         <p>Solution Commands</p>
             <ul>
                 <li>docker build -t spring_boot_example .</li>
