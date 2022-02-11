@@ -41,5 +41,3 @@ done
 docker container rm -f presentation >/dev/null
 docker run -d --entrypoint=/opt/revealjs/bin/present.py --name presentation presentations index 8080
 docker cp presentation:/opt/revealjs/index.html docs/index.html
-
-rm -rf docs/{.git,.github,node_modules}
