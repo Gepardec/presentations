@@ -1,0 +1,9 @@
+docs/
+.gitignore
+.gitattributes
+.dockerignore
+.github/
+.nojekyll
+LICENSE
+*.sh
+*.md

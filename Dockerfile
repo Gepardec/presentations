@@ -1,5 +1,7 @@
 FROM node:16
 
+ARG VERSION_REVEALJS='4.1.2'
+
 RUN apt update && \
     apt install -y --no-install-recommends \
     tree \
@@ -21,7 +23,7 @@ RUN apt update && \
 WORKDIR /opt/revealjs
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node && \
-    git clone --shallow-submodules --recurse-submodules --branch 4.1.2 https://github.com/hakimel/reveal.js.git /opt/revealjs && \
+    git clone --shallow-submodules --recurse-submodules --branch ${VERSION_REVEALJS} https://github.com/hakimel/reveal.js.git /opt/revealjs && \
     git clone https://github.com/denehyg/reveal.js-menu.git /opt/revealjs/plugin/menu && \
     npm cache clean --force && \
     npm install -f 
