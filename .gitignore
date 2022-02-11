@@ -2,3 +2,5 @@
 .travis
 *.odp
 docs
+*.iml
+.idea/
