@@ -20,7 +20,7 @@ rm -rf docs
 mkdir docs
 docker build -t presentations .
 docker container rm -f presentation >/dev/null
-docker run -d --entrypoint=/opt/revealjs/bin/present.py --name presentation presentations Training-for-Containerization 8080
+docker run -d --entrypoint=/opt/revealjs/bin/present.py --name presentation presentations Training-for-Kubernetes 8080
 # Selective copy to improve performace, takes forever if everything is copied
 docker cp presentation:/opt/revealjs/dist   docs/dist
 docker cp presentation:/opt/revealjs/images docs/images
